@@ -63,9 +63,9 @@ export const updateRecord = async (req, res) => {
 export const listRecords = async (req, res) => {
   const workspaceId = parseObjectId(req.params.workspace);
   const { page, pageSize } = parsePagination(req.query);
-  const { search, searchBy, languageCode } = parseListFilters(req.query);
-  const recordService = new ArticleService({ userId: req.user.id, workspaceId });
-  const { data, total } = await recordService.list({ page, pageSize, search, searchBy, languageCode });
+  const { search, searchBy } = parseListFilters(req.query);
+  const recordService = new RecordService({ userId: req.user.id, workspaceId });
+  const { data, total } = await recordService.list({ page, pageSize, search, searchBy });
 
   res.status(200).json({
     records: data,

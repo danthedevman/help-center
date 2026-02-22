@@ -7,6 +7,8 @@ router.get("/workspaces", requireAuth, listWorkspaces);
 
 router.post("/workspaces", requireAuth, createWorkspace);
 
+router.post("/workspaces/:workspace", requireAuth, updateWorkspace);
+
 router.put("/workspaces/:workspace", requireAuth, updateWorkspace);
 
 router.delete("/workspaces/:workspace", requireAuth, deleteWorkspace);

@@ -13,6 +13,23 @@ class RecordService extends BaseWorkspaceService {
     }
   }
 
+   normalizeRequiredTitle(title) {
+    if (typeof title !== "string") {
+      const err = new Error("title is required");
+      err.status = 400;
+      throw err;
+    }
+
+    const normalizedTitle = title.trim();
+    if (!normalizedTitle) {
+      const err = new Error("title is required");
+      err.status = 400;
+      throw err;
+    }
+
+    return normalizedTitle;
+  }
+
   normalizeIds(ids = []) {
     const valid = ids.filter((id) => typeof id === "string" && ObjectId.isValid(id));
     return [...new Set(valid)];
