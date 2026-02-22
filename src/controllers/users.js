@@ -1,4 +1,4 @@
-import { getDb } from "../db/main.js";
+import { getDb } from "../database/main.js";
 import { sendEmail } from "../utils/mailer.js";
 import { parseObjectId } from "../utils/helpers.js";
 

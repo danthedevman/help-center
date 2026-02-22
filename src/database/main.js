@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 let client;
 let dbConnection;
 
-export const connectToDb = async () => {
+export const connectDb = async () => {
   const uri = process.env.MONGODB_URI;
   if (!uri) throw new Error("MONGODB_URI is not defined. Check your .env file.");
 

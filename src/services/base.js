@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
-import { getWorkspaceDb } from "../db/workspace.js";
-import { getDb as getMainDb } from "../db/main.js";
+import { getWorkspaceDb } from "../database/workspace.js";
+import { getDb as getMainDb } from "../database/main.js";
 
 class BaseWorkspaceService {
   constructor({ workspaceId, userId }) {

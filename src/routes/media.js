@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import { uploadChatIcon, uploadImage } from "../controllers/media.js";
+import { uploadImage } from "../controllers/media.js";
 
 const router = Router({ mergeParams: true });
 const upload = multer({

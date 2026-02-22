@@ -23,7 +23,7 @@ function parseListFilters(query = {}) {
   return { search, searchBy, languageCode };
 }
 
-export const getArticle = async (req, res) => {
+export const getRecord = async (req, res) => {
   if (req.params.id === "new") return res.status(200).json({ ok: true });
 
   const workspaceId = parseObjectId(req.params.workspace);
@@ -36,7 +36,7 @@ export const getArticle = async (req, res) => {
   res.status(200).json({ ok: true, article: article });
 };
 
-export const createArticle = async (req, res) => {
+export const createRecord = async (req, res) => {
   const { title, body, topicId, state, languageCode, sourceArticleId } = req.body ?? {};
   const workspaceId = parseObjectId(req.params.workspace);
   const articleService = new ArticleService({
@@ -48,7 +48,7 @@ export const createArticle = async (req, res) => {
   res.status(201).json({ ok: true, article });
 };
 
-export const updateArticle = async (req, res) => {
+export const updateRecord = async (req, res) => {
   const articleId = parseObjectId(req.params.id);
   const { title, body, topicId, state, languageCode } = req.body ?? {};
   const workspaceId = parseObjectId(req.params.workspace);
@@ -61,7 +61,7 @@ export const updateArticle = async (req, res) => {
   res.status(200).json(article);
 };
 
-export const listArticles = async (req, res) => {
+export const listRecords = async (req, res) => {
   const workspaceId = parseObjectId(req.params.workspace);
   const { page, pageSize } = parsePagination(req.query);
   const { search, searchBy, languageCode } = parseListFilters(req.query);
@@ -79,7 +79,7 @@ export const listArticles = async (req, res) => {
   });
 };
 
-export const deleteArticle = async (req, res) => {
+export const deleteRecord = async (req, res) => {
   const articleId = parseObjectId(req.params.id);
   const workspaceId = parseObjectId(req.params.workspace);
   const articleService = new ArticleService({
@@ -91,7 +91,7 @@ export const deleteArticle = async (req, res) => {
   res.status(200).json(deleted);
 };
 
-export const bulkDeleteArticles = async (req, res) => {
+export const bulkDeleteRecords = async (req, res) => {
   const workspaceId = parseObjectId(req.params.workspace);
   const articleService = new ArticleService({ userId: req.user.id, workspaceId });
   const ids = Array.isArray(req.body?.ids) ? req.body.ids : [];

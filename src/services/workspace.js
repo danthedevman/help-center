@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { getDb } from "../db/main.js";
+import { getDb } from "../database/main.js";
 
 
 class WorkspaceService {

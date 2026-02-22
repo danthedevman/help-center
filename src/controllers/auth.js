@@ -2,7 +2,7 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { ObjectId } from "mongodb";
-import { getDb } from "../db/main.js";
+import { getDb } from "../database/main.js";
 import { sendEmail } from "../utils/mailer.js";
 
 const PASSWORD_RESET_TTL_MS = 1000 * 60 * 15;

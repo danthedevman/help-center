@@ -1,4 +1,4 @@
-import { getDb } from "../db/main.js";
+import { getDb } from "../database/main.js";
 import { parseObjectId } from "../utils/helpers.js";
 export async function requireWorkspaceAccess(req, res, next) {
   const db = getDb();
