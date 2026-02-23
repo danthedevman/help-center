@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: (process.env.FRONTEND_URL || "http://localhost:5174").split(","),
+    origin: (process.env.FRONTEND_URL || "http://localhost:5173").split(","),
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   })
